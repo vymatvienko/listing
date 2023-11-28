@@ -1,6 +1,6 @@
+import React from 'react'; 
 
-
-const Listing = ({ item }) => {
+const Listing: React.FC<PropsItem> = ({ item }) => {
     const itemTitle = item.title?.length > 50 ? `${item.title.slice(0, 50)}...` : item.title;
 
     const Currency = ({ value }) => {
@@ -27,6 +27,22 @@ const Listing = ({ item }) => {
             </div>
         </div>
     )
+}
+
+type Item = {
+    listing_id: number;
+    url: string;
+    MainImage: {
+        url_570xN: string;
+    };
+    title: string;
+    currency_code: string;
+    price: string;
+    quantity: number;
+}
+
+type PropsItem = {
+    item: Item;
 }
 
 export default Listing
